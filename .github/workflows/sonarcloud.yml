@@ -39,4 +39,4 @@ jobs:
             org.sonarsource.scanner.maven:sonar-maven-plugin:sonar \
             -Dsonar.projectKey=EC-Nantes_MEDEV-TP_NOTE_MATROPS \
             -Dsonar.organization=ec-nantes \
-            -Dsonar.coverage.jacoco.xmlReportPaths=MEDEV_TP/target/site/jacoco/jacoco.xml
+            -Dsonar.coverage.jacoco.xmlReportPaths=target/site/jacoco/jacoco.xml
