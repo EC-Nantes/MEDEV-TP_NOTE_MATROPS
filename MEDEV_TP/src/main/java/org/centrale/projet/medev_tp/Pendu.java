@@ -39,11 +39,11 @@ public class Pendu {
             System.out.print("Entrez une lettre : ");
             String lettre = scanner.nextLine();
             
-            if (mot.isMot(lettre) && !partie.getLettres_proposées().contains(lettre)) {
+            if (mot.inAlphabet(lettre) && !partie.getLettres_proposées().contains(lettre)) {
                 partie.getLettres_proposées().add(lettre);
                 
                 if (mot.getMaListeNonAfficher().contains(lettre)) {
-                    System.out.print("Le mot contient bien la lettre "+lettre);
+                    System.out.print("Le mot contient bien la lettre "+lettre + "\n");
                     mot.getMaListeNonAfficher().remove(lettre);
                     mot.getMaListeAfficher().add(lettre);
                     
@@ -55,13 +55,14 @@ public class Pendu {
                     partie.afficheTours();
                     
                 } else {
-                    System.out.print("Le mot ne contient pas la lettre "+lettre);
+                    System.out.print("Le mot ne contient pas la lettre "+lettre + "\n");
                     partie.setNb_erreurs_restantes(partie.getNb_erreurs_restantes()-1);
                     
                     if (partie.getNb_erreurs_restantes()==0){
                         partie.setEtat(2);
                     }
                     
+                    mot.afficheListeAfficher();
                     partie.afficheTours();
                 }
                 
