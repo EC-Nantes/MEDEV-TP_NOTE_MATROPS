@@ -28,7 +28,7 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.release>17</maven.compiler.release>
-        <exec.mainClass>org.centrale.projet.medev_tp.MEDEV_TP</exec.mainClass>
+        <exec.mainClass>org.centrale.projet.medev_tp.Pendu</exec.mainClass>
         <sonar.organization>ec-nantes</sonar.organization>
     </properties>
     

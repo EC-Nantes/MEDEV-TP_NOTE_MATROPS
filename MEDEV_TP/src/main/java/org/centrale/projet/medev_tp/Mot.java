@@ -1,16 +1,17 @@
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-
 package org.centrale.projet.medev_tp;
 
 /**
  *
  * @author Max
  */
-public class MEDEV_TP {
-
-    public static void main(String[] args) {
-        System.out.println("Hello World!");
-    }
+public class Mot {
+    private String mot;
+    
+  
+    
+    
 }

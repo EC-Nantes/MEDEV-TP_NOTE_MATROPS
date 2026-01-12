@@ -15,9 +15,9 @@ import static org.junit.jupiter.api.Assertions.*;
  *
  * @author Max
  */
-public class Point2DTest {
+public class MotTest {
     
-    public Point2DTest() {
+    public MotTest() {
     }
     
     @BeforeAll
@@ -41,39 +41,7 @@ public class Point2DTest {
      */
     @Test
     public void testGetX() {
-        System.out.println("GetX");
-        Point2D p = new Point2D(1,2);
-        assertEquals(p.getX(),1);
         
     }
 
-    /**
-     * Test of setX method, of class Test.
-     */
-    @Test
-    public void testSetX() {
-        System.out.println("SetX");
-        Point2D p = new Point2D(2,2);
-        p.setX(1);
-        assertEquals(p.getX(),1);
-        
-    }
-
-   
-
-    
-
-    /**
-     * Test of equals method, of class Test.
-     */
-    @Test
-    public void testEquals() {
-        System.out.println("equals");
-        Point2D p1 = new Point2D(1,1);
-        Point2D p2 = new Point2D(1,1);
-        Point2D p3 = new Point2D(1,2);
-        assertEquals(p1.equals(p2), true);
-        assertEquals(p1.equals(p3), false);
-    }
-    
 }

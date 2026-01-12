@@ -15,9 +15,9 @@ import static org.junit.jupiter.api.Assertions.*;
  *
  * @author Max
  */
-public class MEDEV_TPTest {
+public class PenduTest {
     
-    public MEDEV_TPTest() {
+    public PenduTest() {
     }
     
     @BeforeAll
