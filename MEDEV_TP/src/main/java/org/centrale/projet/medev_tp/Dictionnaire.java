@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- *  Un dictionnaire de mot
+ *  Un dictionnaire de mots
  * @author Max
  */
 public class Dictionnaire {
@@ -34,7 +34,7 @@ public class Dictionnaire {
     }
 
     /**
-     *
+     *  On considère que dans le fichier texte, les mots sont séparé par un ; 
      * @param path
      */
     public void lireFichier(String path) {
