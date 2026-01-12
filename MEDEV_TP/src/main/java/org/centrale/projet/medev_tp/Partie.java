@@ -4,19 +4,28 @@
  */
 package org.centrale.projet.medev_tp;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 
 /**
  *
  * @author selli
  */
-public class Partie {
+public final class Partie {
     private int mode; // 0 pour mode 1 joueur, 1 pour mode 2 joueurs
     private int etat; // 0 pour en cours, 1 pour gagnée, 2 pour perdue
     private int nb_rounds; // Nombre de rounds maximal
     private int nb_erreurs_restantes; 
-    private LinkedList<String> lettres_proposées;
-
+    private ArrayList<String> lettres_proposées;
+    
+    public Partie(int nb_joueur, int nb_rounds){
+        this.mode=nb_joueur-1;
+        this.etat=0;
+        this.nb_rounds=nb_rounds;
+        this.nb_erreurs_restantes=nb_rounds;
+        this.lettres_proposées = new ArrayList<>();
+    }
+    
     public int getMode() {
         return mode;
     }
@@ -49,34 +58,31 @@ public class Partie {
         this.nb_erreurs_restantes = nb_erreurs_restantes;
     }
 
-    public LinkedList<String> getLettres_proposées() {
+    public ArrayList<String> getLettres_proposées() {
         return lettres_proposées;
     }
 
-    public void setLettres_proposées(LinkedList<String> lettres_proposés) {
+    public void setLettres_proposées(ArrayList<String> lettres_proposés) {
         this.lettres_proposées = lettres_proposés;
     }
     
     
     public void afficheLettresProposées() {
-        int n=getLettres_proposées().size();
-        for (int i=0; i<n;i++){
-            System.out.println(getLettres_proposées().get(i)+", ");
+        System.out.print("Lettres proposées : ");
+        for (String l : lettres_proposées) {
+            System.out.print(l + " ");
         }
+        System.out.println();
     }
     
     public void afficheTours(){
         if (etat==0){
-            int n=getNb_rounds()-getNb_erreurs_restantes();
-            System.out.println("Tour :"+n+"/"+getNb_rounds());
             System.out.println("Nombre d'erreurs restantes : "+getNb_erreurs_restantes());
         } else {
             if (etat==1){
                 System.out.println("Partie gagnée.");
             } else {
-                 if (etat==1){
                 System.out.println("Partie perdue.");
-            }
             }
         }
         
