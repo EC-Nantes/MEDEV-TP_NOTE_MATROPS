@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 
 /**
- *
+ * Une partie
  * @author selli
  */
 public final class Partie {
@@ -18,6 +18,11 @@ public final class Partie {
     private int nb_erreurs_restantes; 
     private ArrayList<String> lettres_proposées;
     
+    /**
+     * 
+     * @param nb_joueur
+     * @param nb_rounds
+     */
     public Partie(int nb_joueur, int nb_rounds){
         this.mode=nb_joueur-1;
         this.etat=0;
@@ -26,47 +31,89 @@ public final class Partie {
         this.lettres_proposées = new ArrayList<>();
     }
     
+    /**
+     *
+     * @return
+     */
     public int getMode() {
         return mode;
     }
 
+    /**
+     *
+     * @param mode
+     */
     public void setMode(int mode) {
         this.mode = mode;
     }
 
+    /**
+     *
+     * @return
+     */
     public int getEtat() {
         return etat;
     }
 
+    /**
+     *
+     * @param etat
+     */
     public void setEtat(int etat) {
         this.etat = etat;
     }
 
+    /**
+     *
+     * @return
+     */
     public int getNb_rounds() {
         return nb_rounds;
     }
 
+    /**
+     *
+     * @param nb_rounds
+     */
     public void setNb_rounds(int nb_rounds) {
         this.nb_rounds = nb_rounds;
     }
 
+    /**
+     *
+     * @return
+     */
     public int getNb_erreurs_restantes() {
         return nb_erreurs_restantes;
     }
 
+    /**
+     *
+     * @param nb_erreurs_restantes
+     */
     public void setNb_erreurs_restantes(int nb_erreurs_restantes) {
         this.nb_erreurs_restantes = nb_erreurs_restantes;
     }
 
+    /**
+     *
+     * @return
+     */
     public ArrayList<String> getLettres_proposées() {
         return lettres_proposées;
     }
 
+    /**
+     *
+     * @param lettres_proposés
+     */
     public void setLettres_proposées(ArrayList<String> lettres_proposés) {
         this.lettres_proposées = lettres_proposés;
     }
     
-    
+    /**
+     *
+     */
     public void afficheLettresProposées() {
         System.out.print("Lettres proposées : ");
         for (String l : lettres_proposées) {
@@ -75,6 +122,9 @@ public final class Partie {
         System.out.println();
     }
     
+    /**
+     *
+     */
     public void afficheTours(){
         if (etat==0){
             System.out.println("Nombre d'erreurs restantes : "+getNb_erreurs_restantes());

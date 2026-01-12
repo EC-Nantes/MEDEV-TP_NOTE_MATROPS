@@ -20,21 +20,36 @@ import static org.junit.jupiter.api.Assertions.*;
  */
 public class MotTest {
 
+    /**
+     *
+     */
     public MotTest() {
     }
 
+    /**
+     *
+     */
     @BeforeAll
     public static void setUpClass() {
     }
 
+    /**
+     *
+     */
     @AfterAll
     public static void tearDownClass() {
     }
 
+    /**
+     *
+     */
     @BeforeEach
     public void setUp() {
     }
 
+    /**
+     *
+     */
     @AfterEach
     public void tearDown() {
     }
@@ -92,6 +107,9 @@ public class MotTest {
 
     }
 
+    /**
+     *
+     */
     @Test
     public void testOccurence() {
         System.out.println("TestOccurence");

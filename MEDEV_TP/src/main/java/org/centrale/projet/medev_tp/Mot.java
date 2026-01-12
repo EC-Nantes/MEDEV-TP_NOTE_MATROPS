@@ -10,7 +10,7 @@ import java.util.Random;
 import java.util.Scanner;
 
 /**
- *
+ * Un mot
  * @author Max
  */
 public class Mot {
@@ -22,6 +22,9 @@ public class Mot {
     private static final String PATH = "dic.txt";
     private int nbLettres;
 
+    /**
+     *
+     */
     public Mot() {
         this.mot = new ArrayList<>();
         this.maListeAfficher = new ArrayList<>();
@@ -29,6 +32,13 @@ public class Mot {
         nbLettres = 0;
     }
 
+    /**
+     *
+     * @param mot
+     * @param maListeAfficher
+     * @param maListeNonAfficher
+     * @param nbLettres
+     */
     public Mot(List<String> mot, List<String> maListeAfficher, List<String> maListeNonAfficher, int nbLettres) {
         this.mot = mot;
         this.maListeAfficher = maListeAfficher;
@@ -36,6 +46,9 @@ public class Mot {
         this.nbLettres = nbLettres;
     }
     
+    /**
+     *
+     */
     public void init() {
         this.mot = new ArrayList<>();
         this.maListeAfficher = new ArrayList<>();
@@ -43,30 +56,58 @@ public class Mot {
         nbLettres = 0;
     }
 
+    /**
+     *
+     * @return
+     */
     public List<String> getMot() {
         return mot;
     }
 
+    /**
+     *
+     * @param mot
+     */
     public void setMot(List<String> mot) {
         this.mot = mot;
     }
 
+    /**
+     *
+     * @return
+     */
     public List<String> getMaListeAfficher() {
         return maListeAfficher;
     }
 
+    /**
+     *
+     * @param maListeAfficher
+     */
     public void setMaListeAfficher(List<String> maListeAfficher) {
         this.maListeAfficher = maListeAfficher;
     }
 
+    /**
+     *
+     * @return
+     */
     public List<String> getMaListeNonAfficher() {
         return maListeNonAfficher;
     }
 
+    /**
+     *
+     * @param maListeNonAfficher
+     */
     public void setMaListeNonAfficher(List<String> maListeNonAfficher) {
         this.maListeNonAfficher = maListeNonAfficher;
     }
 
+    /**
+     *
+     * @param i
+     */
     public Mot(int i) {
         String saisie = "";
         this.init();
@@ -94,14 +135,27 @@ public class Mot {
         
     }
 
+    /**
+     *
+     * @return
+     */
     public int getNbLettres() {
         return nbLettres;
     }
 
+    /**
+     *
+     * @param nbLettres
+     */
     public void setNbLettres(int nbLettres) {
         this.nbLettres = nbLettres;
     }
 
+    /**
+     *
+     * @param mot
+     * @return
+     */
     public boolean isMot(String mot) {
         if (mot == null || mot.isEmpty()) {
             return false;
@@ -115,6 +169,11 @@ public class Mot {
         return true;
     }
 
+    /**
+     *
+     * @param c
+     * @return
+     */
     public boolean inAlphabet(String c) {
         if (c == null) {
             return false;
@@ -127,12 +186,19 @@ public class Mot {
         return ALPHABET.contains(c.toLowerCase());
     }
 
+    /**
+     *
+     */
     public void afficheListeAfficher() {
         System.out.println("========MOT========");
         System.out.println(this.maListeAfficher);
         System.out.println("===================");
     }
 
+    /**
+     *
+     * @return
+     */
     public String motInDictionnaire(){
         String mot="";
         Dictionnaire dic = new Dictionnaire();
@@ -144,6 +210,10 @@ public class Mot {
         return mot;
     }
     
+    /**
+     *
+     * @param c
+     */
     public void ajouter(String c) {
     if (c == null || c.length() != 1) {
         return;
@@ -162,6 +232,12 @@ public class Mot {
     this.nbLettres += positions.size();
     }
     
+    /**
+     *
+     * @param mot
+     * @param c
+     * @return
+     */
     public List<Integer> occurrence(List<String> mot, String c) {
     List<Integer> oc = new ArrayList<>();
 

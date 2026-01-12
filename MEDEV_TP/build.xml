@@ -25,7 +25,7 @@
     <echo message="Done"/>
     </target>
 
-    <target name="jar" description="Création d'un jar"
+    <target name="jar" description="Création d'un jar"  
     depends = "build" if="src.available">
     <echo message="Creation d'un jar ..."/>
     <jar destfile="target/app.jar" >
@@ -44,7 +44,7 @@
 
     <target name="javadoc" description="Creation de la javadoc">
     <echo message = "Creation de la javadoc..."/>
-        <javadoc sourcepath="src/main/java"
+        <javadoc sourcepath="src/main/java" 
             destdir="target/doc">
             <fileset dir="src" >
             <include name="**"/>
@@ -98,3 +98,4 @@
 
 
 </project>
+
