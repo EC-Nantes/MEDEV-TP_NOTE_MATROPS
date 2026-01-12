@@ -19,6 +19,8 @@ import static org.junit.jupiter.api.Assertions.*;
  */
 public class MotTest {
     
+    public MotTest() {
+    }
     
     @BeforeAll
     public static void setUpClass() {

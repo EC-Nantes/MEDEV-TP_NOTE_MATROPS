@@ -75,29 +75,7 @@ public class PenduTest {
 
     // ---------- Mot Tests ----------
 
-    @Test
-    public void testCreationMot() {
-        // Simulation d’un mot "chat"
-        Mot mot = new Mot(1);
-        // initialiser le mot manuellement pour test
-        ArrayList<String> lettres = new ArrayList<>();
-        lettres.add("c");
-        lettres.add("h");
-        lettres.add("a");
-        lettres.add("t");
-
-        mot.setMot(lettres);
-        mot.setMaListeAfficher(new ArrayList<>());
-        mot.setMaListeNonAfficher(new ArrayList<>());
-        for (String l : lettres) {
-            mot.getMaListeAfficher().add("_");
-            mot.getMaListeNonAfficher().add(l);
-        }
-
-        assertEquals(4, mot.getMot().size());
-        assertEquals(4, mot.getMaListeNonAfficher().size());
-        assertEquals(4, mot.getMaListeAfficher().size());
-    }
+    
 
     @Test
     public void testLettreCorrecte() {
