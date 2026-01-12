@@ -25,7 +25,6 @@ public class Pendu {
             while (partie.getEtat()==0) {
                 
             }
-        }
         } else {
             System.out.print("Veuillez entrer un nombre de joueurs compris entre 1 et 2, et un nombre maximum de rounds supérieur ou égal à 7.");
         }
