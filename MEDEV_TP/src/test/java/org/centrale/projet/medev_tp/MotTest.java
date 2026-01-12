@@ -152,46 +152,32 @@ public class MotTest {
     }
     
     @Test
-    public void testOccurenceBis() {
-        System.out.println("TestOccurence");
+    public void testAjouter() {
+        System.out.println("TestAjouter");
         Mot mot = new Mot();
         ArrayList<String> mot1 = new ArrayList<>();
         ArrayList<String> mot2 = new ArrayList<>();
+        ArrayList<String> mot3 = new ArrayList<>();
         mot1.add("t");
         mot1.add("e");
         mot1.add("s");
         mot1.add("t");
+        
+        mot3.add("_");
+        mot3.add("_");
+        mot3.add("_");
+        mot3.add("_");
 
-        mot2.add("b");
-        mot2.add("a");
-        mot2.add("b");
-        mot2.add("a");
-        mot2.add("b");
-
-        List<Integer> oc1 = new ArrayList<>();
-        List<Integer> oc2 = new ArrayList<>();
-        List<Integer> oc3 = new ArrayList<>();
-        List<Integer> oc4 = new ArrayList<>();
-
-        // Mot 1
-        oc1.add(1); // "e" est à l'indice 1
-        // oc2 reste vide pour lettre "o" qui n'existe pas
-
-        // Mot 2
-        oc3.add(0); // "b" à l'indice 0
-        oc3.add(2); // "b" à l'indice 2
-        oc3.add(4); // "b" à l'indice 4
-
-        oc4.add(1); // "a" à l'indice 1
-        oc4.add(3); // "a" à l'indice 3
+        mot2.add("_");
+        mot2.add("_");
+        mot2.add("s");
+        mot2.add("_");
 
         System.out.println("Mot 1 : " + mot1);
-        assertEquals(oc1, mot.occurrence(mot1, "e"));
-        assertEquals(oc2, mot.occurrence(mot1, "o"));
-
-        System.out.println("Mot 2 : " + mot2);
-        assertEquals(oc3, mot.occurrence(mot2, "b"));
-        assertEquals(oc4, mot.occurrence(mot2, "a"));
+        mot.setMot(mot1);
+        mot.setMaListeAfficher(mot3);
+        mot.ajouter("s");
+        assertEquals(mot.getMaListeAfficher(), mot2);
     }
 
 }
