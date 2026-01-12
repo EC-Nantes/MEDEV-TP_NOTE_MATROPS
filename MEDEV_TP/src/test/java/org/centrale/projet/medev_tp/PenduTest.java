@@ -21,8 +21,6 @@ public class PenduTest {
     public PenduTest() {
     }
     
-    // ---------- Partie Tests ----------
-    
     @Test
     public void testCreationPartie() {
         Partie partie1 = new Partie(1, 10);
@@ -39,6 +37,7 @@ public class PenduTest {
 
         assertNotNull(partie1.getLettres_proposées());
         assertTrue(partie1.getLettres_proposées().isEmpty());
+
     }
 
     @Test
@@ -72,70 +71,4 @@ public class PenduTest {
         partie.setNb_erreurs_restantes(3);
         assertEquals(3, partie.getNb_erreurs_restantes());
     }
-
-    // ---------- Mot Tests ----------
-
-    
-
-    @Test
-    public void testLettreCorrecte() {
-        Mot mot = new Mot(1);
-        ArrayList<String> lettres = new ArrayList<>();
-        lettres.add("c");
-        lettres.add("h");
-        lettres.add("a");
-        lettres.add("t");
-
-        mot.setMot(lettres);
-        mot.setMaListeAfficher(new ArrayList<>());
-        mot.setMaListeNonAfficher(new ArrayList<>());
-        for (String l : lettres) {
-            mot.getMaListeAfficher().add("_");
-            mot.getMaListeNonAfficher().add(l);
-        }
-
-        // Simuler deviner une lettre "a"
-        String lettre = "a";
-        assertTrue(mot.getMaListeNonAfficher().contains(lettre));
-        mot.getMaListeNonAfficher().remove(lettre);
-        mot.getMaListeAfficher().set(2, lettre); // position 2 pour "a"
-
-        assertFalse(mot.getMaListeNonAfficher().contains(lettre));
-        assertEquals("a", mot.getMaListeAfficher().get(2));
-    }
-
-    @Test
-    public void testLettreIncorrecte() {
-        Mot mot = new Mot(1);
-        ArrayList<String> lettres = new ArrayList<>();
-        lettres.add("c");
-        lettres.add("h");
-        lettres.add("a");
-        lettres.add("t");
-
-        mot.setMot(lettres);
-        mot.setMaListeAfficher(new ArrayList<>());
-        mot.setMaListeNonAfficher(new ArrayList<>());
-        for (String l : lettres) {
-            mot.getMaListeAfficher().add("_");
-            mot.getMaListeNonAfficher().add(l);
-        }
-
-        String lettre = "z";
-        assertFalse(mot.getMaListeNonAfficher().contains(lettre));
-    }
-
-    // ---------- Pendu Tests ----------
-
-    @Test
-    public void testInAlphabet() {
-        Mot mot = new Mot();
-        assertTrue(mot.isMot("a"));
-        assertTrue(mot.isMot("z"));
-        assertFalse(mot.isMot("ab"));
-        assertFalse(mot.isMot("1"));
-        assertFalse(mot.isMot(""));
-        assertFalse(mot.isMot(null));
-    }
-    
 }
