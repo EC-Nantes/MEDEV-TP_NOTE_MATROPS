@@ -19,10 +19,11 @@ public final class Partie {
     private ArrayList<String> lettres_proposées;
     
     public Partie(int nb_joueur, int nb_rounds){
-        setMode(nb_joueur-1);
-        setEtat(0);
-        setNb_rounds(nb_rounds);
-        setNb_erreurs_restantes(nb_rounds);
+        this.mode=nb_joueur-1;
+        this.etat=0;
+        this.nb_rounds=nb_rounds;
+        this.nb_erreurs_restantes=nb_rounds;
+        this.lettres_proposées = new ArrayList<>();
     }
     
     public int getMode() {
@@ -67,10 +68,11 @@ public final class Partie {
     
     
     public void afficheLettresProposées() {
-        int n=getLettres_proposées().size();
-        for (int i=0; i<n;i++){
-            System.out.println(getLettres_proposées().get(i)+", ");
+        System.out.print("Lettres proposées : ");
+        for (String l : lettres_proposées) {
+            System.out.print(l + " ");
         }
+        System.out.println();
     }
     
     public void afficheTours(){
@@ -80,9 +82,7 @@ public final class Partie {
             if (etat==1){
                 System.out.println("Partie gagnée.");
             } else {
-                 if (etat==1){
                 System.out.println("Partie perdue.");
-            }
             }
         }
         
