@@ -11,21 +11,32 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- *
+ *  Un dictionnaire de mot
  * @author Max
  */
 public class Dictionnaire {
 
     private List<String> maListeMot;
 
+    /**
+     *
+     */
     public Dictionnaire() {
         maListeMot = new ArrayList<>();
     }
 
+    /**
+     *
+     * @param maListeMot
+     */
     public Dictionnaire(List<String> maListeMot) {
         this.maListeMot = maListeMot;
     }
 
+    /**
+     *
+     * @param path
+     */
     public void lireFichier(String path) {
         try (BufferedReader br = new BufferedReader(new FileReader(path))) {
             String line;
@@ -59,10 +70,18 @@ public class Dictionnaire {
         }
     }
 
+    /**
+     *
+     * @return
+     */
     public List<String> getMaListeMot() {
         return maListeMot;
     }
 
+    /**
+     *
+     * @param maListeMot
+     */
     public void setMaListeMot(List<String> maListeMot) {
         this.maListeMot = maListeMot;
     }

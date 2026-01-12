@@ -8,15 +8,19 @@ import java.util.LinkedList;
 import java.util.Scanner;
 
 /**
- *
+ *  Le pendu
  * @author Max
  */
 public class Pendu {
 
+    /**
+     *
+     * @param args
+     */
     public static void main(String[] args) {
         
         Scanner scanner = new Scanner(System.in);
-        
+        //Il faudrait ici sécurisé, en mettant un try pour convertir en entier.
         System.out.print("Entrez le nombre de joueurs : ");
         int nb_joueur = scanner.nextInt();
         System.out.print("Entrez le nombre d'erreurs maximum (>=7) : ");

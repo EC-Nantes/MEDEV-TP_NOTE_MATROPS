@@ -18,21 +18,36 @@ import static org.junit.jupiter.api.Assertions.*;
  */
 public class PartieTest {
     
+    /**
+     *
+     */
     public PartieTest() {
     }
     
+    /**
+     *
+     */
     @BeforeAll
     public static void setUpClass() {
     }
     
+    /**
+     *
+     */
     @AfterAll
     public static void tearDownClass() {
     }
     
+    /**
+     *
+     */
     @BeforeEach
     public void setUp() {
     }
     
+    /**
+     *
+     */
     @AfterEach
     public void tearDown() {
     }
@@ -47,6 +62,9 @@ public class PartieTest {
         assertEquals(1, partie.getMode());
     }
 
+    /**
+     *
+     */
     @Test
     public void testGetSetEtat() {
         Partie partie = new Partie(1, 10);
@@ -54,6 +72,9 @@ public class PartieTest {
         assertEquals(2, partie.getEtat());
     }
 
+    /**
+     *
+     */
     @Test
     public void testGetSetNbRounds() {
         Partie partie = new Partie(1, 10);
@@ -61,6 +82,9 @@ public class PartieTest {
         assertEquals(15, partie.getNb_rounds());
     }
 
+    /**
+     *
+     */
     @Test
     public void testGetSetNbErreursRestantes() {
         Partie partie = new Partie(1, 10);
@@ -68,6 +92,9 @@ public class PartieTest {
         assertEquals(5, partie.getNb_erreurs_restantes());
     }
 
+    /**
+     *
+     */
     @Test
     public void testGetSetLettresProposees() {
         Partie partie = new Partie(1, 10);
@@ -78,6 +105,9 @@ public class PartieTest {
         assertEquals(lettres, partie.getLettres_proposées());
     }
 
+    /**
+     *
+     */
     @Test
     public void testCreationPartie() {
         Partie partie1 = new Partie(1, 10);
@@ -96,6 +126,9 @@ public class PartieTest {
         assertTrue(partie1.getLettres_proposées().isEmpty());
     }
 
+    /**
+     *
+     */
     @Test
     public void testGestionLettresProposees() {
         Partie partie = new Partie(1, 10);
@@ -107,6 +140,9 @@ public class PartieTest {
         assertTrue(partie.getLettres_proposées().contains("b"));
     }
 
+    /**
+     *
+     */
     @Test
     public void testEtatPartie() {
         Partie partie = new Partie(1, 5);
@@ -119,6 +155,9 @@ public class PartieTest {
         assertEquals(2, partie.getEtat()); // perdu
     }
     
+    /**
+     *
+     */
     @Test
     public void testEtatInitialPartie() {
         Partie partie = new Partie(1, 7);
@@ -127,6 +166,9 @@ public class PartieTest {
         assertTrue(partie.getLettres_proposées().isEmpty());
     }
 
+    /**
+     *
+     */
     @Test
     public void testAjouterLettreProposee() {
         Partie partie = new Partie(1, 7);
@@ -138,6 +180,9 @@ public class PartieTest {
         assertEquals(sizeBefore + 1, partie.getLettres_proposées().size()); // attention, ArrayList permet doublons
     }
 
+    /**
+     *
+     */
     @Test
     public void testNbErreursRestantes() {
         Partie partie = new Partie(1, 7);
@@ -147,6 +192,9 @@ public class PartieTest {
         assertEquals(4, partie.getNb_erreurs_restantes());
     }
 
+    /**
+     *
+     */
     @Test
     public void testEtatVictoireDefaite() {
         Partie partie = new Partie(1, 2);

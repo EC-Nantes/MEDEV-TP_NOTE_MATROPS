@@ -18,9 +18,15 @@ import static org.junit.jupiter.api.Assertions.*;
  */
 public class PenduTest {
     
+    /**
+     *
+     */
     public PenduTest() {
     }
     
+    /**
+     *
+     */
     @Test
     public void testCreationPartie() {
         Partie partie1 = new Partie(1, 10);
@@ -40,6 +46,9 @@ public class PenduTest {
 
     }
 
+    /**
+     *
+     */
     @Test
     public void testGestionLettresProposees() {
         Partie partie = new Partie(1, 10);
@@ -51,6 +60,9 @@ public class PenduTest {
         assertTrue(partie.getLettres_proposées().contains("b"));
     }
 
+    /**
+     *
+     */
     @Test
     public void testEtatPartie() {
         Partie partie = new Partie(1, 5);
@@ -63,6 +75,9 @@ public class PenduTest {
         assertEquals(2, partie.getEtat()); // perdu
     }
 
+    /**
+     *
+     */
     @Test
     public void testNbErreursRestantes() {
         Partie partie = new Partie(1, 5);
