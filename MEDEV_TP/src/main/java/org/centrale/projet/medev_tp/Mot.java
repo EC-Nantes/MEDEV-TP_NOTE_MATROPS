@@ -4,8 +4,9 @@
  */
 package org.centrale.projet.medev_tp;
 
-import static java.lang.Integer.parseInt;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 import java.util.Scanner;
 
 /**
@@ -18,8 +19,12 @@ public class Mot {
     private List<String> maListeAfficher;
     private List<String> maListeNonAfficher;
     private static final String ALPHABET = "abcdefghijklmnopqrstuvwxyz";
+    private static final String PATH = "";
 
     public Mot() {
+        this.mot = new ArrayList<>();
+        this.maListeAfficher = new ArrayList<>();
+        this.maListeNonAfficher = new ArrayList<>();
     }
 
     public Mot(List<String> mot, List<String> maListeAfficher, List<String> maListeNonAfficher) {
@@ -63,12 +68,12 @@ public class Mot {
             } while (!isMot(saisie));
             System.out.println("Mot valide !");
         } else if (i == 2) {
-            
+                saisie = this.motInDictionnaire();
         } else {
             System.out.println("Ce n'est pas un chiffre entre 1 et 2");
-            return; 
+            return;
         }
-
+        //Je rajoute 1 à 1 les lettres dans mot, et je met des _ _ _ _ _ _ _ pour les lettres affichées
         for (char ch : saisie.toLowerCase().toCharArray()) {
             String lettre = String.valueOf(ch);
             this.mot.add(lettre);
@@ -76,23 +81,46 @@ public class Mot {
         }
     }
 
-    public static boolean isMot(String mot) {
-
+    public boolean isMot(String mot) {
         if (mot == null || mot.isEmpty()) {
             return false;
         }
 
-        for (char c : mot.toLowerCase().toCharArray()) {
-            if (c < 'a' || c > 'z') {
+        for (char ch : mot.toLowerCase().toCharArray()) {
+            if (!inAlphabet(String.valueOf(ch))) {
                 return false;
             }
         }
         return true;
     }
-    
-    public void afficheListeAfficher(){
-        System.out.println("========MOT========");
-        System.out.println(this.maListeAfficher);
+
+    public boolean inAlphabet(String c) {
+        if (c == null) {
+            return false;
+        }
+
+        if (c.length() != 1) {
+            return false;
+        }
+
+        return ALPHABET.contains(c.toLowerCase());
     }
 
+    public void afficheListeAfficher() {
+        System.out.println("========MOT========");
+        System.out.println(this.maListeAfficher);
+        System.out.println("===================");
+    }
+
+    public String motInDictionnaire(){
+        String mot="";
+        Dictionnaire dic = new Dictionnaire();
+        dic.lireFichier(PATH);
+        Random nextIntAlea = new Random();
+        List<String> maListeMot = dic.getMaListeMot();
+        int indice = nextIntAlea.nextInt(maListeMot.size());
+        mot = maListeMot.get(indice);
+        return mot;
+    }
+    
 }
