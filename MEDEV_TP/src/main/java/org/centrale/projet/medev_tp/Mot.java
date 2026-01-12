@@ -32,6 +32,12 @@ public class Mot {
         this.maListeAfficher = maListeAfficher;
         this.maListeNonAfficher = maListeNonAfficher;
     }
+    
+    public void init() {
+        this.mot = new ArrayList<>();
+        this.maListeAfficher = new ArrayList<>();
+        this.maListeNonAfficher = new ArrayList<>();
+    }
 
     public List<String> getMot() {
         return mot;
@@ -59,21 +65,22 @@ public class Mot {
 
     public Mot(int i) {
         String saisie = "";
+        this.init();
 
-        if (i == 1) {
+        if (i == 2) {
             Scanner sc = new Scanner(System.in);
             do {
                 System.out.println("Joueur 1 : Choisissez votre mot");
                 saisie = sc.nextLine();
             } while (!isMot(saisie));
             System.out.println("Mot valide !");
-        } else if (i == 2) {
+        } else if (i == 1) {
                 saisie = this.motInDictionnaire();
         } else {
             System.out.println("Ce n'est pas un chiffre entre 1 et 2");
             return;
         }
-        //Je rajoute 1 à 1 les lettres dans mot, et je met des _ _ _ _ _ _ _ pour les lettres affichées
+        //Je rajoute 1 à 1 les lettres dans mot, et je met des _ _ _ _ _ _ _ pour les lettres à affichées
         for (char ch : saisie.toLowerCase().toCharArray()) {
             String lettre = String.valueOf(ch);
             this.mot.add(lettre);
