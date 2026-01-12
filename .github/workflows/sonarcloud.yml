@@ -30,11 +30,13 @@ jobs:
           path: ~/.m2
           key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
           restore-keys: ${{ runner.os }}-m2
-      - name: Build and analyze (SonarCloud)
-        working-directory: MEDEV_TP
+      - name: Build, test, coverage, SonarCloud
         env:
-              GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-              SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        run: mvn -B clean verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar \
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        run: |
+          mvn -B -f MEDEV_TP/pom.xml clean verify \
+            org.sonarsource.scanner.maven:sonar-maven-plugin:sonar \
             -Dsonar.projectKey=EC-Nantes_MEDEV-TP_NOTE_MATROPS \
+            -Dsonar.organization=ec-nantes \
             -Dsonar.coverage.jacoco.xmlReportPaths=target/site/jacoco/jacoco.xml
