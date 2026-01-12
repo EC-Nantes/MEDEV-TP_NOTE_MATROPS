@@ -79,21 +79,83 @@ public class PartieTest {
     }
 
     @Test
-    public void testAjouterLettreProposee() {
-        Partie partie = new Partie(1, 10);
-        // Ajouter une lettre et vérifier
-        partie.getLettres_proposées().add("c");
-        assertTrue(partie.getLettres_proposées().contains("c"));
+    public void testCreationPartie() {
+        Partie partie1 = new Partie(1, 10);
+        Partie partie2 = new Partie(2, 15);
+
+        assertEquals(0, partie1.getMode()); // 1 joueur -> mode 0
+        assertEquals(1, partie2.getMode()); // 2 joueurs -> mode 1
+
+        assertEquals(10, partie1.getNb_rounds());
+        assertEquals(15, partie2.getNb_rounds());
+
+        assertEquals(10, partie1.getNb_erreurs_restantes());
+        assertEquals(15, partie2.getNb_erreurs_restantes());
+
+        assertNotNull(partie1.getLettres_proposées());
+        assertTrue(partie1.getLettres_proposées().isEmpty());
     }
 
     @Test
-    public void testAfficheToursEtat() {
+    public void testGestionLettresProposees() {
         Partie partie = new Partie(1, 10);
-        // On ne peut pas "tester" le println facilement,
-        // mais on peut vérifier que l'état change correctement
+        partie.getLettres_proposées().add("a");
+        partie.getLettres_proposées().add("b");
+
+        assertEquals(2, partie.getLettres_proposées().size());
+        assertTrue(partie.getLettres_proposées().contains("a"));
+        assertTrue(partie.getLettres_proposées().contains("b"));
+    }
+
+    @Test
+    public void testEtatPartie() {
+        Partie partie = new Partie(1, 5);
+        assertEquals(0, partie.getEtat());
+
         partie.setEtat(1);
-        assertEquals(1, partie.getEtat());
+        assertEquals(1, partie.getEtat()); // gagné
+
         partie.setEtat(2);
+        assertEquals(2, partie.getEtat()); // perdu
+    }
+    
+    @Test
+    public void testEtatInitialPartie() {
+        Partie partie = new Partie(1, 7);
+        assertEquals(0, partie.getEtat());
+        assertEquals(7, partie.getNb_erreurs_restantes());
+        assertTrue(partie.getLettres_proposées().isEmpty());
+    }
+
+    @Test
+    public void testAjouterLettreProposee() {
+        Partie partie = new Partie(1, 7);
+        partie.getLettres_proposées().add("a");
+        assertTrue(partie.getLettres_proposées().contains("a"));
+        // ajouter lettre déjà proposée ne change rien
+        int sizeBefore = partie.getLettres_proposées().size();
+        partie.getLettres_proposées().add("a");
+        assertEquals(sizeBefore + 1, partie.getLettres_proposées().size()); // attention, ArrayList permet doublons
+    }
+
+    @Test
+    public void testNbErreursRestantes() {
+        Partie partie = new Partie(1, 7);
+        partie.setNb_erreurs_restantes(5);
+        assertEquals(5, partie.getNb_erreurs_restantes());
+        partie.setNb_erreurs_restantes(partie.getNb_erreurs_restantes() - 1);
+        assertEquals(4, partie.getNb_erreurs_restantes());
+    }
+
+    @Test
+    public void testEtatVictoireDefaite() {
+        Partie partie = new Partie(1, 2);
+        assertEquals(0, partie.getEtat());
+
+        partie.setEtat(1); // victoire
+        assertEquals(1, partie.getEtat());
+
+        partie.setEtat(2); // défaite
         assertEquals(2, partie.getEtat());
     }
 }
