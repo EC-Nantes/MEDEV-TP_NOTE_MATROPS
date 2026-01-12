@@ -75,8 +75,6 @@ public final class Partie {
     
     public void afficheTours(){
         if (etat==0){
-            int n=getNb_rounds()-getNb_erreurs_restantes();
-            System.out.println("Tour :"+n+"/"+getNb_rounds());
             System.out.println("Nombre d'erreurs restantes : "+getNb_erreurs_restantes());
         } else {
             if (etat==1){
