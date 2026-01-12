@@ -42,12 +42,11 @@ public class Pendu {
             if (mot.inAlphabet(lettre) && !partie.getLettres_proposées().contains(lettre)) {
                 partie.getLettres_proposées().add(lettre);
                 
-                if (mot.getMaListeNonAfficher().contains(lettre)) {
+                if (mot.getMot().contains(lettre)) {
                     System.out.print("Le mot contient bien la lettre "+lettre + "\n");
-                    mot.getMaListeNonAfficher().remove(lettre);
-                    mot.getMaListeAfficher().add(lettre);
+                    mot.ajouter(lettre);
                     
-                    if (mot.getMaListeNonAfficher().size()==0){
+                    if (mot.getNbLettres()==mot.getMot().size()){
                         partie.setEtat(1);
                     }
                     

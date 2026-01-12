@@ -19,24 +19,28 @@ public class Mot {
     private List<String> maListeAfficher;
     private List<String> maListeNonAfficher;
     private static final String ALPHABET = "abcdefghijklmnopqrstuvwxyz";
-    private static final String PATH = "";
+    private static final String PATH = "dic.txt";
+    private int nbLettres;
 
     public Mot() {
         this.mot = new ArrayList<>();
         this.maListeAfficher = new ArrayList<>();
         this.maListeNonAfficher = new ArrayList<>();
+        nbLettres = 0;
     }
 
-    public Mot(List<String> mot, List<String> maListeAfficher, List<String> maListeNonAfficher) {
+    public Mot(List<String> mot, List<String> maListeAfficher, List<String> maListeNonAfficher, int nbLettres) {
         this.mot = mot;
         this.maListeAfficher = maListeAfficher;
         this.maListeNonAfficher = maListeNonAfficher;
+        this.nbLettres = nbLettres;
     }
     
     public void init() {
         this.mot = new ArrayList<>();
         this.maListeAfficher = new ArrayList<>();
         this.maListeNonAfficher = new ArrayList<>();
+        nbLettres = 0;
     }
 
     public List<String> getMot() {
@@ -86,6 +90,16 @@ public class Mot {
             this.mot.add(lettre);
             this.maListeAfficher.add("_");
         }
+        
+        
+    }
+
+    public int getNbLettres() {
+        return nbLettres;
+    }
+
+    public void setNbLettres(int nbLettres) {
+        this.nbLettres = nbLettres;
     }
 
     public boolean isMot(String mot) {
@@ -130,4 +144,38 @@ public class Mot {
         return mot;
     }
     
+    public void ajouter(String c) {
+    if (c == null || c.length() != 1) {
+        return;
+    }
+    List<Integer> positions = new ArrayList<Integer>();
+    
+    positions = this.occurrence(this.mot, c);
+    System.out.println("Position : " + positions);
+    System.out.println("mot" + this.mot.toString());
+
+    for (int index : positions) {
+        System.out.println("index : " + index);
+        this.maListeAfficher.set(index, c.toLowerCase());
+        
+    }
+    this.nbLettres += positions.size();
+}
+    
+    public List<Integer> occurrence(List<String> mot, String c) {
+    List<Integer> oc = new ArrayList<>();
+
+    if (mot != null && c != null && c.length() == 1) {
+        String lettre = c.toLowerCase();
+
+        for (int i = 0; i < mot.size(); i++) {
+            if (lettre.equals(mot.get(i).toLowerCase())) {
+                oc.add(i);
+            }
+        }
+    }
+    return oc;
+}
+
+
 }

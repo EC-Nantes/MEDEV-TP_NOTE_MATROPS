@@ -44,8 +44,6 @@ public class Dictionnaire {
                 }
 
                 ajouterSiValide(mot.toString());
-
-                System.out.println(line);
             }
 
         } catch (IOException e) {
