@@ -160,7 +160,7 @@ public class Mot {
         
     }
     this.nbLettres += positions.size();
-}
+    }
     
     public List<Integer> occurrence(List<String> mot, String c) {
     List<Integer> oc = new ArrayList<>();

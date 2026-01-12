@@ -5,6 +5,7 @@
 package org.centrale.projet.medev_tp;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.AfterAll;
@@ -37,6 +38,24 @@ public class MotTest {
     @AfterEach
     public void tearDown() {
     }
+    
+    @Test
+    void testGettersSetters() {
+        Mot mot = new Mot();
+        List<String> motList = Arrays.asList("x", "y", "z");
+        List<String> affichage = Arrays.asList("_", "_", "_");
+        List<String> nonAffichage = Arrays.asList("x", "y", "z");
+
+        mot.setMot(motList);
+        mot.setMaListeAfficher(affichage);
+        mot.setMaListeNonAfficher(nonAffichage);
+        mot.setNbLettres(3);
+
+        assertEquals(motList, mot.getMot());
+        assertEquals(affichage, mot.getMaListeAfficher());
+        assertEquals(nonAffichage, mot.getMaListeNonAfficher());
+        assertEquals(3, mot.getNbLettres());
+    }
 
     /**
      * Test of isMot method, of class Mot.
@@ -55,6 +74,8 @@ public class MotTest {
         System.out.println("Mot 3 : " + mot3);
         assertEquals(false, mot.isMot(mot3));
     }
+    
+    
 
     /**
      * Test of afficheListeAfficher method, of class Mot.
@@ -110,6 +131,49 @@ public class MotTest {
         System.out.println("Mot 2 : " + mot1);
         assertEquals(oc4, mot.occurrence(mot2, "a"));
 
+    }
+    
+    @Test
+    public void testOccurenceBis() {
+        System.out.println("TestOccurence");
+        Mot mot = new Mot();
+        ArrayList<String> mot1 = new ArrayList<>();
+        ArrayList<String> mot2 = new ArrayList<>();
+        mot1.add("t");
+        mot1.add("e");
+        mot1.add("s");
+        mot1.add("t");
+
+        mot2.add("b");
+        mot2.add("a");
+        mot2.add("b");
+        mot2.add("a");
+        mot2.add("b");
+
+        List<Integer> oc1 = new ArrayList<>();
+        List<Integer> oc2 = new ArrayList<>();
+        List<Integer> oc3 = new ArrayList<>();
+        List<Integer> oc4 = new ArrayList<>();
+
+        // Mot 1
+        oc1.add(1); // "e" est à l'indice 1
+        // oc2 reste vide pour lettre "o" qui n'existe pas
+
+        // Mot 2
+        oc3.add(0); // "b" à l'indice 0
+        oc3.add(2); // "b" à l'indice 2
+        oc3.add(4); // "b" à l'indice 4
+
+        oc4.add(1); // "a" à l'indice 1
+        oc4.add(3); // "a" à l'indice 3
+
+        System.out.println("Mot 1 : " + mot1);
+        assertEquals(oc1, mot.occurrence(mot1, "e"));
+        assertEquals(oc2, mot.occurrence(mot1, "o"));
+
+        System.out.println("Mot 2 : " + mot2);
+        assertEquals(oc3, mot.occurrence(mot2, "b"));
+        assertEquals(oc4, mot.occurrence(mot2, "a"));
     }
 
 }
