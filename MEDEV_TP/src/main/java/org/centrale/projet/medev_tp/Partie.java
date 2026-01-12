@@ -4,19 +4,27 @@
  */
 package org.centrale.projet.medev_tp;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 
 /**
  *
  * @author selli
  */
-public class Partie {
+public final class Partie {
     private int mode; // 0 pour mode 1 joueur, 1 pour mode 2 joueurs
     private int etat; // 0 pour en cours, 1 pour gagnée, 2 pour perdue
     private int nb_rounds; // Nombre de rounds maximal
     private int nb_erreurs_restantes; 
-    private LinkedList<String> lettres_proposées;
-
+    private ArrayList<String> lettres_proposées;
+    
+    public Partie(int nb_joueur, int nb_rounds){
+        setMode(nb_joueur-1);
+        setEtat(0);
+        setNb_rounds(nb_rounds);
+        setNb_erreurs_restantes(nb_rounds);
+    }
+    
     public int getMode() {
         return mode;
     }
@@ -49,11 +57,11 @@ public class Partie {
         this.nb_erreurs_restantes = nb_erreurs_restantes;
     }
 
-    public LinkedList<String> getLettres_proposées() {
+    public ArrayList<String> getLettres_proposées() {
         return lettres_proposées;
     }
 
-    public void setLettres_proposées(LinkedList<String> lettres_proposés) {
+    public void setLettres_proposées(ArrayList<String> lettres_proposés) {
         this.lettres_proposées = lettres_proposés;
     }
     
